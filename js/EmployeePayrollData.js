@@ -57,6 +57,15 @@ class EmployeePayrollData {
         return this._startDate;
     }
 
+    set startDate(startDate) {
+        let future = new Date();
+        future.setDate(future.getDate() + 30);
+        if (startDate < new Date() || startDate < future)
+            this._startDate = startDate;
+        else
+            throw "Start Date is Incorrect";
+    }
+    
     get notes() {
         return this._notes;
     }
